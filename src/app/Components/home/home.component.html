@@ -1,0 +1,93 @@
+
+<div *ngIf="vloadingSpinner" class="spinner"></div>
+
+<div *ngIf="vErrorMsg" style="color: red; text-align: center;"><h3> {{ vErrorMsg }} </h3></div>
+
+<div class="card" *ngIf="!vloadingSpinner && !vErrorMsg">
+    <div class="card-body">
+        <h4 class="text-center" style="color:darkorchid"><i class="fa fa-globe"></i> Worldwide Cases</h4>
+        <a routerLink="/countries-details" class="card-box-footer"> More Details <i class="fa fa-arrow-circle-right"></i></a>
+
+        <div class="row">
+            <div class="col-lg-4 col-sm-6">
+                <div class="card-box bg-blue">
+                    <div class="inner">
+                        <h3> {{ vCovidSummary.NewConfirmed | number }} </h3>
+                        <p> New Confirmed </p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-users"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <div class="card-box bg-blue">
+                    <div class="inner">
+                        <h3> {{ vCovidSummary.TotalConfirmed | number }} </h3>
+                        <p> Total Confirmed </p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-users"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-4 col-sm-6">
+                <div class="card-box bg-green">
+                    <div class="inner">
+                        <h3> {{ vCovidSummary.NewRecovered | number }} </h3>
+                        <p> New Recovered </p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-users"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <div class="card-box bg-green">
+                    <div class="inner">
+                        <h3> {{ vCovidSummary.TotalRecovered | number }} </h3>
+                        <p> Total Recovered </p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-users"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-4 col-sm-6">
+                <div class="card-box bg-red">
+                    <div class="inner">
+                        <h3> {{ vCovidSummary.NewDeaths | number }} </h3>
+                        <p> New Deaths </p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-users"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <div class="card-box bg-red">
+                    <div class="inner">
+                        <h3> {{ vCovidSummary.TotalDeaths | number }} </h3>
+                        <p> Total Deaths </p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-users"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6 col-sm-6">
+                <p style="color: blue;"><strong style="color: black;">Last Update: </strong>{{ vLastUpdate | date:'dd-MMM-yyyy , hh:mm:ss a' }}</p>
+            </div>
+        </div>    
+    </div>
+</div>
+

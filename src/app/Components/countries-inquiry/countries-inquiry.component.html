@@ -1,0 +1,113 @@
+
+<div *ngIf="vloadingSpinner" class="spinner"></div>
+
+<div *ngIf="vErrorMsg" style="color: red; text-align: center;"><h3> {{ vErrorMsg }} </h3></div>
+
+<div class="card" *ngIf="!vloadingSpinner && !vErrorMsg">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-lg-6 col-sm-6">
+                <select class="form-control" (change)="FilterCountryDetails($event.target.value)">
+                    <option value=""> -- Select Country -- </option>
+                    <option *ngFor="let vCountry of vCountries" value={{vCountry.Slug}}>
+                        {{ vCountry.Country }}
+                    </option>
+                </select>
+            </div>
+            <div class="col-lg-6 col-sm-6">
+                <div style="margin: 7px;">
+                    <a  *ngIf="vShowModal" href="" class="card-box-footer" data-toggle="modal" data-target="#myModal" (click)="GetCountryHistory()"> <i class="fa fa-info-circle"></i> More Informations</a>
+                    <h6 *ngIf="vNoDataFound" style="color: red;"> {{ vNoDataFound }} </h6>
+                </div>
+            </div>
+        </div>
+
+        <fieldset class="border m-2 p-2">
+            <legend class="w-auto">New Cases</legend>
+            <div class="row">
+                <div class="col-lg-3 col-sm-6 text-center">
+                    <img src="assets/Images/Red-Virus.png" style="width: 100px; height: 100px;">
+                    <p>Confirmed</p>
+                    <p><strong style="color:red;">{{ vCountryDetails.NewConfirmed   | number }}</strong></p>
+                </div>
+                <div class="col-lg-3 col-sm-6 text-center">
+                    <img src="assets/Images/Green-Virus.png" style="width: 100px; height: 100px;">
+                    <p>Recovered</p>
+                    <p><strong style="color:green;">{{ vCountryDetails.NewRecovered   | number }}</strong></p>
+                </div>
+                <div class="col-lg-3 col-sm-6 text-center">
+                    <img src="assets/Images/Black-Virus.png" style="width: 100px; height: 100px;">
+                    <p>Deaths</p>
+                    <p><strong style="color:black;">{{ vCountryDetails.NewDeaths   | number }}</strong></p>
+                </div>
+            </div>
+        </fieldset>
+        
+        <fieldset class="border m-2 p-2">
+            <legend class="w-auto">Total Cases</legend>
+            <div class="row">
+                <div class="col-lg-3 col-sm-6 text-center">
+                    <img src="assets/Images/Red-Virus.png" style="width: 100px; height: 100px;">
+                    <p>Confirmed</p>
+                    <p><strong style="color:red;">{{ vCountryDetails.TotalConfirmed   | number }}</strong></p>
+                </div>
+                <div class="col-lg-3 col-sm-6 text-center">
+                    <img src="assets/Images/Green-Virus.png" style="width: 100px; height: 100px;">
+                    <p>Recovered</p>
+                    <p><strong style="color:green;">{{ vCountryDetails.TotalRecovered   | number }}</strong></p>
+                </div>
+                <div class="col-lg-3 col-sm-6 text-center">
+                    <img src="assets/Images/Black-Virus.png" style="width: 100px; height: 100px;">
+                    <p>Deaths</p>
+                    <p><strong style="color:black;">{{ vCountryDetails.TotalDeaths   | number }}</strong></p>
+                </div>
+            </div>
+        </fieldset>
+
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12 col-sm-6 text-center">
+
+<!-- The Modal -->
+<div class="modal fade" id="myModal" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content" style="width: 150%; right: 25%;">
+    
+            <!-- Modal Header -->
+            <div class="modal-header">
+            <button type="button" class="close" (click)="hideModal()">&times;</button>
+            </div>
+    
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div style="width:100%;overflow:auto; max-height:500px;">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <td>Country</td>
+                                <td>Confirmed</td>
+                                <td>Deaths</td>
+                                <td>Recovered</td>
+                                <td>Active</td>
+                                <td>Date</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let vCountry of vCountryHistory">
+                                <td>{{ vCountry.Country }}</td>
+                                <td>{{ vCountry.Confirmed | number }}</td>
+                                <td>{{ vCountry.Deaths | number }}</td>
+                                <td>{{ vCountry.Recovered | number }}</td>
+                                <td>{{ vCountry.Active | number }}</td>
+                                <td>{{ vCountry.Date | date:'dd-MMM-yyyy' }}</td>       
+                            <tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>

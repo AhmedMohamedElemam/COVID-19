@@ -1,0 +1,52 @@
+﻿<header>
+    <nav class="navbar navbar-expand-md bg-light navbar-light fixed-top">
+        <a class="navbar-brand" href="#" translate>
+          <img src="assets/Images/Covid-Logo.png">
+          COVID-19
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+
+            <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+              <a class="nav-link" [routerLink]="['/']" translate>Home</a>
+            </li>
+
+            <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+              <a class="nav-link" [routerLink]="['/countries-inquiry']" translate>Countries</a>
+            </li>
+
+            <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+              <a class="nav-link" [routerLink]="['/about']" translate>About</a>
+            </li>
+
+          <!--
+            <li class="nav-item">
+              <a class="nav-link" (click)="SwitchLanguage()" translate>SiteLang</a>
+            </li>
+          -->
+
+          </ul>
+        </div>
+    </nav>
+</header>
+
+<div class="container">
+    <br><br><br><br>
+    <router-outlet></router-outlet>
+    <br><br><br><br>
+</div>
+
+<footer>
+    <div>
+      <ul class="social-network social-circle">
+          <li><a href="https://www.facebook.com/A7med.Elemam" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+          <li><a href="https://www.linkedin.com/in/ahmed-elemam-013aa8146" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+          <li><a href="https://github.com/AhmedMohamedElemam" class="icoGithub" title="Github"><i class="fa fa-github"></i></a></li>
+      </ul>	
+    </div>
+    <span class="text-xs-center"> Copyright © 2020 - All rights reserved </span>
+</footer>

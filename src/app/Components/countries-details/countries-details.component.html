@@ -1,0 +1,26 @@
+
+<div *ngIf="vloadingSpinner" class="spinner"></div>
+
+<div *ngIf="vErrorMsg" style="color: red; text-align: center;"><h3> {{ vErrorMsg }} </h3></div>
+
+<div class="card" *ngIf="!vloadingSpinner && !vErrorMsg">
+    <div class="card-body">
+        <h4 class="text-center" style="color:darkorchid">Covid-19 All Countries Cases</h4>
+        <div class="row">
+            <div class="col-lg-3 col-sm-6" *ngFor="let vCountry of vCovidCountries">
+                <div class="card-box bg-aliceblue">
+                    <div class="inner">
+                        <h5> {{ vCountry.Country }} </h5>
+                        <hr>
+                        <p> New Confirmed   : <strong style="color:red;">  {{ vCountry.NewConfirmed   | number }}</strong> </p>
+                        <p> Total Confirmed : <strong style="color:red;">  {{ vCountry.TotalConfirmed | number }}</strong> </p>
+                        <p> New Recovered   : <strong style="color:green;">{{ vCountry.NewRecovered   | number }}</strong> </p>
+                        <p> Total Recovered : <strong style="color:green"> {{ vCountry.TotalRecovered | number }}</strong> </p>
+                        <p> New Deaths      : <strong style="color:black;">{{ vCountry.NewDeaths      | number }}</strong> </p>
+                        <p> Total Deaths    : <strong style="color:black;">{{ vCountry.TotalDeaths    | number }}</strong> </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,90 @@
+/********************************Spinner********************************/
+.spinner{
+    border: 16px solid silver;
+    border-top: 16px solid #337AB7;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    animation: spin 700ms linear infinite;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+}
+@keyframes spin{
+    0%   { transform: rotate(0deg);}
+    100% { transform: rotate(-360deg);}
+}
+/*******************************Card Box*******************************/
+.card-box {
+    position: relative;
+    color: black;
+    padding: 20px 10px 40px;
+    margin: 20px 0px;
+}
+/*.card-box:hover {
+    text-decoration: none;
+    color: #f1f1f1;
+}*/
+.card-box:hover .icon i {
+    font-size: 100px;
+    transition: 1s;
+    -webkit-transition: 1s;
+}
+.card-box .inner {
+    padding: 5px 10px 0 10px;
+}
+.card-box h3 {
+    font-size: 27px;
+    font-weight: bold;
+    margin: 0 0 8px 0;
+    white-space: nowrap;
+    padding: 0;
+    text-align: left;
+}
+.card-box h5 {
+    font-size: 15px;
+    font-weight: bold;
+    margin: 0 0 8px 0;
+    white-space: nowrap;
+    padding: 0;
+    text-align: left;
+}
+.card-box p {
+    font-size: 15px;
+}
+.card-box .icon {
+    position: absolute;
+    top: auto;
+    bottom: 5px;
+    right: 5px;
+    z-index: 0;
+    font-size: 72px;
+    color: rgba(0, 0, 0, 0.15);
+}
+.card-box .card-box-footer {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    text-align: center;
+    padding: 3px 0;
+    color: black;
+    background: rgba(0, 0, 0, 0.1);
+    width: 100%;
+    text-decoration: none;
+}
+.card-box:hover .card-box-footer {
+    background: rgba(0, 0, 0, 0.3);
+}
+.bg-red {
+    background-color: lightcoral !important;
+}
+.bg-green {
+    background-color: lightgreen !important;
+}
+.bg-blue {
+    background-color: lightblue  !important;
+}
+.bg-aliceblue {
+    background-color: aliceblue  !important;
+}
+/**********************************************************************/
